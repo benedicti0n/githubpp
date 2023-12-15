@@ -1,0 +1,38 @@
+// Get the head element of the document
+var head = document.head || document.getElementsByTagName('head')[0];
+
+// Create a style element
+var style = document.createElement('style');
+style.type = 'text/css';
+
+var css = `
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        background: url('https://github.com/Storm99999/githubpp/blob/main/img/lovely.jpg?raw=true') center/cover no-repeat;
+        filter: blur(20px); /* Adjust the blur amount as needed */
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+`;
+
+style.appendChild(document.createTextNode(css));
+
+head.appendChild(style);
+var container = document.querySelector('.Box.mt-4');
+
+if (container) {
+    container.style = 'background: transparent;';
+    var elementsInsideContainer = container.querySelectorAll('*');
+    elementsInsideContainer.forEach(function(element) {
+        element.style = 'color: white';
+    });
+}
